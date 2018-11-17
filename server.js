@@ -3,6 +3,8 @@ const hbs = require('hbs');
 const fs = require('fs');
 var app = express();
 
+const port = process.env.PORT || 3000;
+
 hbs.registerPartials(__dirname + '/views/partials'); //registering partial templates used through out the work
 
 hbs.registerHelper('getCurrentYear',()=> new Date().getFullYear()) //registering a handlebar helps which is used to run js code everywhere needed
@@ -48,6 +50,6 @@ app.get('/bad',(req,res) => {
         errorMessage : `Unable to handle Request 404 No Response`
     });
 })
-app.listen(3000,()=>{
-    console.log('server is up on port localhost 3000');
+app.listen(port,()=>{
+    console.log(`server is up on port ${port}`);
 })
