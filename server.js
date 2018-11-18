@@ -43,8 +43,12 @@ app.get('/about',(req,res) => {
         pageTitle : 'Templating example',
         // currentYear : new Date().getFullYear(),
     });
-})
-
+});
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs',{
+        pageTitle: 'Github Projects'
+    })
+});
 app.get('/bad',(req,res) => {
     res.send({
         errorMessage : `Unable to handle Request 404 No Response`
